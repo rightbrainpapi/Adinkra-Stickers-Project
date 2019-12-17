@@ -1,0 +1,72 @@
+{\rtf1\ansi\ansicpg1252\cocoartf1671\cocoasubrtf200
+{\fonttbl\f0\fswiss\fcharset0 Helvetica;\f1\fnil\fcharset0 Menlo-Regular;}
+{\colortbl;\red255\green255\blue255;\red0\green0\blue0;\red255\green252\blue229;\red41\green66\blue119;
+\red180\green69\blue0;\red223\green7\blue0;\red71\green106\blue151;}
+{\*\expandedcolortbl;;\csgenericrgb\c0\c0\c0;\csgenericrgb\c100000\c98800\c89800;\csgenericrgb\c16100\c25900\c46700;
+\csgenericrgb\c70600\c27000\c0;\csgenericrgb\c87500\c2700\c0;\csgenericrgb\c27800\c41500\c59300;}
+{\*\listtable{\list\listtemplateid1\listhybrid{\listlevel\levelnfc23\levelnfcn23\leveljc0\leveljcn0\levelfollow0\levelstartat1\levelspace360\levelindent0{\*\levelmarker \{disc\}}{\leveltext\leveltemplateid1\'01\uc0\u8226 ;}{\levelnumbers;}\fi-360\li720\lin720 }{\listname ;}\listid1}}
+{\*\listoverridetable{\listoverride\listid1\listoverridecount0\ls1}}
+\margl1440\margr1440\vieww9000\viewh8400\viewkind0
+\pard\tx560\tx1120\tx1680\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720\pardirnatural\partightenfactor0
+
+\f0\fs24 \cf0 	\'95	Update background:\
+
+\f1\fs22     \cf2 \cb3 \
+\pard\tx543\pardeftab543\pardirnatural\partightenfactor0
+\cf4 var\cf2  useBackgroundImage = \cf4 true //Set true for using background image, false otherwise\
+var\cf2  backgroundColor = \cf5 UIColor\cf2 (hexString: \cf6 "9c23ab"\cf2 )\cf4 \
+\pard\tx560\tx1120\tx1680\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720\pardirnatural\partightenfactor0
+\cf0 \cb1 \
+To change background image import new image to Assets/background\
+To use background color set \cf2 \cb3 useBackgroundImage\cf0 \cb1  to false and update corresponding property (\cf2 \cb3 backgroundColor\cf0 \cb1 )\
+\pard\tx560\tx1120\tx1186\tx1680\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720\pardirnatural\partightenfactor0
+
+\f0\fs24 \cf0 \
+\
+\pard\tx220\tx503\tx720\tx1120\tx1186\tx1680\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720\li720\fi-720\pardirnatural\partightenfactor0
+\ls1\ilvl0\cf0 {\listtext	     \uc0\u8226 	}      Change Vectors:\
+\pard\tx560\tx1120\tx1186\tx1680\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720\pardirnatural\partightenfactor0
+\cf0 \
+Go to resources folder:\
+1) add/update existing images;\
+2) make corresponding changes in StickerData.plist. Each object has 3 property:\
+	- id; not used now but may be needed later for some reasons (for ex. ordering)\
+	- name; put the name of the imported image here\
+	- isFree; NO to mark sticker as locked, YES otherwise\
+\
+\
+\pard\tx220\tx503\tx720\tx1120\tx1186\tx1680\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720\li720\fi-720\pardirnatural\partightenfactor0
+\cf0 	     \'95	      More Sticker Pack section:\
+\
+\pard\tx560\tx1120\tx1680\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720\pardirnatural\partightenfactor0
+\cf0 To add apps to the section go to the 
+\f1\fs22 MoreAppsDataManager and update \cf2 \cb3 developerId\cf0 \cb1  constant with the developer identifier \
+\
+\
+\pard\tx220\tx503\tx720\tx1120\tx1186\tx1680\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720\li720\fi-720\pardirnatural\partightenfactor0
+
+\f0\fs24 \cf0 		 \'95	      Update app font style:\
+\
+You have a few options:\
+\pard\tx560\tx1120\tx1680\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720\pardirnatural\partightenfactor0
+\cf0 	1) Manually update font style/color in storyboards for each UI control (you have to remove 
+\f1\fs22 \cf2 \cb3 setAppTheme \cf0 \cb1 call in MessagesViewController
+\f0\fs24 )\
+
+\f1\fs22 	2)Use \cf2 \cb3 setAppTheme() \cf0 \cb1 method in MessagesViewController: \
+To change UI Controls color use:\
+		\cf5 \cb3 UILabel\cf2 .\cf7 appearance\cf2 ().\cf7 substituteFontColor\cf2  = \cf5 UIColor\cf2 (hexString: \cf6 "424242"\cf2 )\cf0 \cb1 \
+        \cf5 \cb3 UIButton\cf2 .\cf7 appearance\cf2 ().\cf7 substituteFontColor\cf2  = \cf5 UIColor\cf2 (hexString: \cf6 "424242"\cf2 )\cf0 \cb1 \
+\
+To override default system font call \cf5 \cb3 UIFont\cf2 .\cf7 overrideInitialize\cf2 ().\cf0 \cb1  The names of the custom font can be set in AppFontUtil.AppFontName struct.\
+	\
+
+\f0\fs24 \
+
+\f1\fs22     
+\f0\fs24  \'95	 Integrate IAP:\
+Update 
+\f1\fs22 \cf2 \cb3 IAPHelper.unlockAllProductId \cf0 \cb1 constant with the appropriate product ID taken from App Store Connect. \
+\
+\
+}
